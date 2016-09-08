@@ -1,6 +1,6 @@
 #RawConverter
 ---
-This is an implementation of a raw processing pipeline to process .cr2-Files (raw files from Canon DSLRs) and render them viewable. the processing can be done step by step with custom parameters to fully understand each processing step. The following steps are implemented:
+This is my practical Bachelor's project from 2014. It's an implementation of a raw processing pipeline to process .cr2-Files (raw files from Canon DSLRs) and render them viewable. the processing can be done step by step with custom parameters to fully understand each processing step. The following steps are implemented:
 - Cropping of border pixels
 - Black level subtraction and normalization
 - Demosaicing
