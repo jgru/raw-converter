@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_jar" name="Build CR2_Processor">
+	<!--this file was created by Eclipse Runnable JAR Export Wizard-->
+	<!--ANT 1.7 is required                                        -->
+	<target name="create_jar">
+		<delete dir="./build/jar" />
+		<mkdir dir="./build/jar" />
+
+		<jar destfile="./build/jar/CR2_Processor.jar">
+			<manifest>
+				<attribute name="Main-Class" value="com.jan_gruber.rawprocessor.main.CR2_Processor" />
+				<attribute name="Class-Path" value=". animatedpanel.jar jai_codec.jar jai_core.jar Jama-1.0.3.jar log4j-1.2.17.jar log5j-2.1.2.jar TimingFramework-1.0.jar xmleditorkit.jar A" />
+			</manifest>
+			<fileset dir="./bin" />
+		</jar>
+		<copy file="./lib/animatedpanel.jar" todir="./build/jar" />
+		<copy file="./lib/jai_codec.jar" todir="./build/jar" />
+		<copy file="./lib/jai_core.jar" todir="./build/jar" />
+		<copy file="./lib/Jama-1.0.3.jar" todir="./build/jar" />
+		<copy file="./lib/log4j-1.2.17.jar" todir="./build/jar" />
+		<copy file="./lib/log5j-2.1.2.jar" todir="./build/jar" />
+		<copy file="./lib/TimingFramework-1.0.jar" todir="./build/jar" />
+		<copy file="./lib/xmleditorkit.jar" todir="./build/jar" />
+		<copy file="./lib/Utils.jar" todir="./build/jar" />
+	</target>
+
+
+	<property environment="env" />
+	<taskdef name="bundleapp" classname="com.oracle.appbundler.AppBundlerTask" classpath="lib/appbundler-1.0.jar" />
+	<target name="bundle-rawStitcher">
+		<delete dir="./build/release" />
+		<mkdir dir="./build/release" />
+
+		<bundleapp outputdirectory="./build/release" name="RawStitcher" displayname="RawStitcher" identifier="com.RawStitcher" shortversion="1.0" icon="./res/icons/rs.icns" applicationCategory="public.app-category.developer-tools" mainclassname="com/jan_gruber/rawprocessor/main/CR2_Processor" copyright="2014 Jan Gruber">
+			<classpath file="./build/jar/animatedpanel.jar" />
+			<classpath file="./build/jar/jai_codec.jar" />
+			<classpath file="./build/jar/jai_core.jar" />
+			<classpath file="./build/jar/Jama-1.0.3.jar" />
+			<classpath file="./build/jar/log4j-1.2.17.jar" />
+			<classpath file="./build/jar/log5j-2.1.2.jar" />
+			<classpath file="./build/jar/TimingFramework-1.0.jar" />
+			<classpath file="./build/jar/xmleditorkit.jar" />
+			<classpath file="./build/jar/Utils.jar" />
+			<classpath file="./build/jar/CR2_Processor.jar" />
+
+			<!-- OSX specific options, optional -->
+			<option value="-Dapple.laf.useScreenMenuBar=true" />
+			<option value="-Dcom.apple.macos.use-file-dialog-packages=true" />
+			<option value="-Dcom.apple.macos.useScreenMenuBar=true" />
+			<option value="-Dapple.awt.application.name=MyApp" />
+			<option value="-Dcom.apple.smallTabs=true" />
+
+			<option value="-Xmx4096M" />
+		</bundleapp>
+	</target>
+
+	<target name="clean">
+		<delete dir="./build/jar" />
+	</target>
+
+</project>
