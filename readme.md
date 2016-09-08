@@ -1,5 +1,10 @@
-####Attention####
+#RawConverter
+---
+This is an implementation of a raw processing pipeline to process .cr2-Files (raw files from Canon DSLRs) viewable. In addition to that there is functionality to flat stitch raw files, which were captured via a shift lens (TS- or PC-lenses), and export them as .dngs. So it's possible to preserve the 'raw' nature of the files, altough they were already stitched together, which has certain benefits. Stitching is done in native code, which is called with the use of the Java Native Interface. The raw processing pipeline is implemented in pure Java and follows the MVC architecture.
 
+ 
+
+##Attention
 
 RawProcessor needs a patched Version of LibTiff 4.0.3, which is used to write .tif and .dng files. For more info see:
 http://www.cybercom.net/~dcoffin/dcraw/libtiff.patch
