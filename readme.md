@@ -1,6 +1,16 @@
 #RawConverter
 ---
-This is an implementation of a raw processing pipeline to process .cr2-Files (raw files from Canon DSLRs) viewable. In addition to that there is functionality to flat stitch raw files, which were captured via a shift lens (TS- or PC-lenses), and export them as .dngs. So it's possible to preserve the 'raw' nature of the files, altough they were already stitched together, which has certain benefits. Stitching is done in native code, which is called with the use of the Java Native Interface. The raw processing pipeline is implemented in pure Java and follows the MVC architecture.
+This is an implementation of a raw processing pipeline to process .cr2-Files (raw files from Canon DSLRs) and render them viewable. the processing can be done step by step with custom parameters to fully understand each processing step. The following steps are implemented:
+- Cropping of border pixels
+- Black level subtraction and normalization
+- Demosaicing
+- Color space transformation
+- Application of LUTs, which are generated from a curves panel
+- Noise reduction
+- Compensation sharpening
+- Export as .tiff file
+
+In addition to that there is functionality to flat stitch raw files, which were captured via a shift lens (TS- or PC-lenses), and export them as .dngs. So it's possible to preserve the 'raw' nature of the files, altough they were already stitched together, which has certain benefits. Stitching is done in native code, which is called with the use of the Java Native Interface. The raw processing pipeline is implemented in pure Java and follows the MVC architecture.
 
  
 
