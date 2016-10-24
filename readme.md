@@ -25,6 +25,8 @@ https://github.com/ncsuarc/tiffutils/blob/master/libtiff-4.0.3.patch
 The patch should look like this: 
 Add support for CFA pattern tags in TIFF images.  This allows creating
 DNG images with a custom bayer pattern.
+
+
 ---
  libtiff/tif_dirinfo.c |    2 ++
  libtiff/tiff.h        |    3 +++
